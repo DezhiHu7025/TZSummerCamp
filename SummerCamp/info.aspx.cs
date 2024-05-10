@@ -28,6 +28,8 @@ namespace SummerCamp
                 this.txt_add.Text = "（必填）";
                 //this.txt_gread.Text = "（必填）";
                 this.drp_gread.SelectedValue = "0";
+                this.SWYD.SelectedValue = "0";
+                this.SWYD.SelectedValue = "0";
                 this.txt_school.Text = "（必填）";
                 this.txt_parents.Text = "（必填）";
                 this.txt_phone.Text = "（11位手机号码）";
@@ -35,6 +37,16 @@ namespace SummerCamp
                 RadioButton1.Checked = false;
                 RadioButton2.Checked = false;
                 this.btn_post.Visible = true;
+                if (id == 75)
+                {
+                    this.SWYD.Visible = true;
+                    this.XWYD.Visible = true;
+                }
+                else
+                {
+                    this.SWYD.Visible = false;
+                    this.XWYD.Visible = false;
+                }
 
                 BindYear();
                 BindMonth();
@@ -60,9 +72,9 @@ namespace SummerCamp
                 {
                     ceate_ip = "127.0.0.1";
                 }
-                
+
             }
-            
+
         }
         protected void BindYear()
         {
@@ -111,7 +123,7 @@ namespace SummerCamp
         {
 
             string product_name, product_time, fee;
-            string sqlstr = "SELECT * FROM [db_forminf].[dbo].[product] where shop_id='S0000031' and  (Is_inner ='Z' OR Is_inner = 'N') AND Is_open = 'Y'  and id =" + ida;
+            string sqlstr = "SELECT * FROM [db_forminf].[dbo].[product] where shop_id='S0000034' and  (Is_inner ='Z' OR Is_inner = 'N') AND Is_open = 'Y'  and id =" + ida;
             DataSet myViewDate = lw.ReturnDataSet(sqlstr, "product");
             if (myViewDate.Tables[0].Rows.Count > 0)
             {
@@ -122,7 +134,7 @@ namespace SummerCamp
                 this.lbl_course.Text = product_name;
                 this.lbl_time.Text = product_time;
                 this.lbl_fee.Text = fee;
-                this.HiddenField1.Value =myViewDate.Tables[0].Rows[0]["id"].ToString().Trim();
+                this.HiddenField1.Value = myViewDate.Tables[0].Rows[0]["id"].ToString().Trim();
                 this.HiddenField2.Value = fee;
                 this.HiddenField3.Value = myViewDate.Tables[0].Rows[0]["num_max"].ToString().Trim();
                 this.HiddenField4.Value = myViewDate.Tables[0].Rows[0]["product_name"].ToString().Trim();
@@ -138,7 +150,7 @@ namespace SummerCamp
                     this.Iszhusu.Visible = true;
 
                     //绑定droplist
-                 
+
                     for (int cc = 0; cc < Convert.ToInt32(myViewDate.Tables[0].Rows[0]["zhusu_Maxnum"].ToString().Trim()); cc++)
                     {
                         int bb = cc + 1;
@@ -193,7 +205,7 @@ namespace SummerCamp
                 else
                 {
                     //如果报名人数已满，更新关闭课程
-                    string sqlstr2 = "update  [db_forminf].[dbo].[product] set Is_open = 'N' where shop_id='S0000031' and  product_id = '" + this.HiddenField7.Value.Trim() + "'";
+                    string sqlstr2 = "update  [db_forminf].[dbo].[product] set Is_open = 'N' where shop_id='S0000034' and  product_id = '" + this.HiddenField7.Value.Trim() + "'";
                     int aa = lw.EXECCommand(sqlstr2);
                     result = false;
                     return result;
@@ -208,104 +220,117 @@ namespace SummerCamp
         protected void baoming_Click(object sender, EventArgs e)
         {
 
-             
-                if (text_stu_name.Text.Length == 0 || text_stu_name.Text == "（必填）")
-                {
-                    Response.Write("<Script Language=JavaScript>alert('新增失败！学生姓名必填！');</Script>");
-                    return;
-                }
-                if (txt_country.Text.Length == 0 || txt_country.Text == "（必填）")
-                {
-                    Response.Write("<Script Language=JavaScript>alert('新增失败！国籍/籍贯必填！');</Script>");
-                    return;
-                }
-                if (txt_add.Text.Length == 0 || txt_add.Text == "（必填）")
-                {
-                    Response.Write("<Script Language=JavaScript>alert('新增失败！请填写居住地！');</Script>");
-                    return;
-                }
+
+            if (text_stu_name.Text.Length == 0 || text_stu_name.Text == "（必填）")
+            {
+                Response.Write("<Script Language=JavaScript>alert('新增失败！学生姓名必填！');</Script>");
+                return;
+            }
+            if (txt_country.Text.Length == 0 || txt_country.Text == "（必填）")
+            {
+                Response.Write("<Script Language=JavaScript>alert('新增失败！国籍/籍贯必填！');</Script>");
+                return;
+            }
+            if (txt_add.Text.Length == 0 || txt_add.Text == "（必填）")
+            {
+                Response.Write("<Script Language=JavaScript>alert('新增失败！请填写居住地！');</Script>");
+                return;
+            }
             //判断此小学学生生日必须在区间2007.9.1~2012.8.31
-                //string Sshengri = drp_year.SelectedValue + "/" + drp_month.SelectedValue + "/" + drp_day.SelectedValue;
-                //string Saa = CompanyDate(Sshengri, "2004/9/1") ;
-                //string Sbb = CompanyDate(Sshengri, "2012/8/31");
-                //if (Saa == "小于" || Sbb == "大于")
-                //{
-                //    Response.Write("<Script Language=JavaScript>alert('新增失败！学生生日需要在2011年9月1日~2016年8月31日之间，若有特殊情况请咨询学校招生办！');</Script>");
-                //    return;
-                //}
-                //if (txt_gread.Text.Length == 0 || txt_gread.Text == "（必填）")
-                //{
-                //    Response.Write("<Script Language=JavaScript>alert('新增失败！请填写学生现读年级！');</Script>");
-                //    return;
-                //}
-                if (Convert.ToInt32(this.drp_gread.SelectedValue)== 0)
+            //string Sshengri = drp_year.SelectedValue + "/" + drp_month.SelectedValue + "/" + drp_day.SelectedValue;
+            //string Saa = CompanyDate(Sshengri, "2004/9/1") ;
+            //string Sbb = CompanyDate(Sshengri, "2012/8/31");
+            //if (Saa == "小于" || Sbb == "大于")
+            //{
+            //    Response.Write("<Script Language=JavaScript>alert('新增失败！学生生日需要在2011年9月1日~2016年8月31日之间，若有特殊情况请咨询学校招生办！');</Script>");
+            //    return;
+            //}
+            //if (txt_gread.Text.Length == 0 || txt_gread.Text == "（必填）")
+            //{
+            //    Response.Write("<Script Language=JavaScript>alert('新增失败！请填写学生现读年级！');</Script>");
+            //    return;
+            //}
+            if (Convert.ToInt32(Request.QueryString["id"].ToString()) == 75)
+            {
+                if (string.IsNullOrEmpty(this.SWYD.SelectedValue) ||this.SWYD.SelectedValue == "0")
                 {
-                    Response.Write("<Script Language=JavaScript>alert('新增失败！请选择学生现读年级，一年级G1~六年级G6！，若有特殊情况请咨询学校招生办！');</Script>");
+                    Response.Write("<Script Language=JavaScript>alert('新增失败！请选择上午营队');</Script>");
                     return;
                 }
-                if (txt_school.Text.Length == 0 || txt_school.Text == "（必填）")
+                if (string.IsNullOrEmpty(this.XWYD.SelectedValue) || this.XWYD.SelectedValue == "0")
                 {
-                    Response.Write("<Script Language=JavaScript>alert('新增失败！请填写学生现读学校！');</Script>");
+                    Response.Write("<Script Language=JavaScript>alert('新增失败！请选择下午营队');</Script>");
                     return;
                 }
-                if (txt_school.Text.Contains("康桥") || txt_school.Text.Contains("康橋"))
-                {
-                    Response.Write("<Script Language=JavaScript>alert('新增失败！若您现读学校是康桥学校，请回到首页选择校内家长登录报名！');</Script>");
-                    return;
-                }
-                if (txt_parents.Text.Length == 0 || txt_parents.Text == "（必填）")
-                {
-                    Response.Write("<Script Language=JavaScript>alert('新增失败！请填写家长姓名！');</Script>");
-                    return;
-                }
-                if (txt_phone.Text.Length == 0 || txt_phone.Text == "（11位手机号码）")
-                {
-                    Response.Write("<Script Language=JavaScript>alert('新增失败！请填写家长手机号码！');</Script>");
-                    return;
-                }
-                if (txt_phone.Text.Length != 11)
-                {
-                    Response.Write("<Script Language=JavaScript>alert('新增失败！手机号码应为11位！');</Script>");
-                    return;
-                }
-                if (txt_introducer.Text.Length == 0 || txt_introducer.Text == "（必填,若无介绍人请填'无'）")
-                {
-                    Response.Write("<Script Language=JavaScript>alert('新增失败！请填写介绍人，若无介绍人请填写‘无’！');</Script>");
-                    return;
-                }
+            }
+            if (Convert.ToInt32(this.drp_gread.SelectedValue) == 0)
+            {
+                Response.Write("<Script Language=JavaScript>alert('新增失败！请选择学生现读年级，一年级G1~六年级G6！，若有特殊情况请咨询学校招生办！');</Script>");
+                return;
+            }
+            if (txt_school.Text.Length == 0 || txt_school.Text == "（必填）")
+            {
+                Response.Write("<Script Language=JavaScript>alert('新增失败！请填写学生现读学校！');</Script>");
+                return;
+            }
+            if (txt_school.Text.Contains("康桥") || txt_school.Text.Contains("康橋"))
+            {
+                Response.Write("<Script Language=JavaScript>alert('新增失败！若您现读学校是康桥学校，请回到首页选择校内家长登录报名！');</Script>");
+                return;
+            }
+            if (txt_parents.Text.Length == 0 || txt_parents.Text == "（必填）")
+            {
+                Response.Write("<Script Language=JavaScript>alert('新增失败！请填写家长姓名！');</Script>");
+                return;
+            }
+            if (txt_phone.Text.Length == 0 || txt_phone.Text == "（11位手机号码）")
+            {
+                Response.Write("<Script Language=JavaScript>alert('新增失败！请填写家长手机号码！');</Script>");
+                return;
+            }
+            if (txt_phone.Text.Length != 11)
+            {
+                Response.Write("<Script Language=JavaScript>alert('新增失败！手机号码应为11位！');</Script>");
+                return;
+            }
+            if (txt_introducer.Text.Length == 0 || txt_introducer.Text == "（必填,若无介绍人请填'无'）")
+            {
+                Response.Write("<Script Language=JavaScript>alert('新增失败！请填写介绍人，若无介绍人请填写‘无’！');</Script>");
+                return;
+            }
 
-                if (CheckIsMax())
+            if (CheckIsMax())
+            {
+                if (DoAdd())
                 {
-                    if (DoAdd())
+                    //Response.Write("<Script Language=JavaScript>alert('新增成功！');</Script>");
+                    //生成订单
+                    //Response.Redirect("summer_ok.aspx");
+                    if (DoSeparate())
                     {
-                        //Response.Write("<Script Language=JavaScript>alert('新增成功！');</Script>");
-                        //生成订单
-                        //Response.Redirect("summer_ok.aspx");
-                        if (DoSeparate())
-                        {
-                            string url = string.Format("{0}?no={1}", "http://school.kcistz.org.cn/Cweixinorder/weixinorderpc.aspx", KmchSeqNo);
-                            Response.Redirect(url);
-                        }
-                        else
-                        {
-                            Response.Write("<Script Language=JavaScript>alert('DoSeparate新增失败！');</Script>");
-                        }
-
+                        string url = string.Format("{0}?no={1}", "http://school.kcistz.org.cn/Cweixinorder/weixinorderpc.aspx", KmchSeqNo);
+                        Response.Redirect(url);
                     }
                     else
                     {
-                        Response.Write("<Script Language=JavaScript>alert('DoAdd新增失败！');</Script>");
+                        Response.Write("<Script Language=JavaScript>alert('DoSeparate新增失败！');</Script>");
                     }
+
                 }
                 else
                 {
-                    
-                    Response.Write("<script language=javascript>alert('该课程报名已满！');window.location = 'course.aspx';</script>");
-                
+                    Response.Write("<Script Language=JavaScript>alert('DoAdd新增失败！');</Script>");
                 }
+            }
+            else
+            {
+
+                Response.Write("<script language=javascript>alert('该课程报名已满！');window.location = 'course.aspx';</script>");
+
+            }
 
         }
-        public string  CompanyDate(string dateStr1, string dateStr2)
+        public string CompanyDate(string dateStr1, string dateStr2)
         {
             //将日期字符串转换为日期对象
             DateTime t1 = Convert.ToDateTime(dateStr1);
@@ -333,14 +358,14 @@ namespace SummerCamp
 
         protected bool DoAdd()
         {
-            this.btn_post.Visible = false; 
+            this.btn_post.Visible = false;
             KmchSeqNo = "SCB" + Utils.Nmrandom();
             bool result = false;
             string InsertStr = "";
             InsertStr = @"insert into summer_indent(addtime,stuname,sex,jiguan,address,grade,schoolname,pname,
-phone,mchSeqNo,product_id,product_id_bianhao,product_name,Is_inner,num,fee,Is_zhusu,zhusu_num,zhusu_fee,total_fee,ip,introducer,ispay,birthday)
+phone,mchSeqNo,product_id,product_id_bianhao,product_name,Is_inner,num,fee,Is_zhusu,zhusu_num,zhusu_fee,total_fee,ip,introducer,ispay,birthday,swyd,xwyd)
 values(@addtime,@stuname,@sex,@jiguan,@address,@grade,@schoolname,@pname,@phone,@mchSeqNo,@product_id,@product_id_bianhao,@product_name,'N',
-1,@fee,@Is_zhusu,@zhusu_num,@zhusu_fee,@total_fee,@ip,@introducer,@ispay,@birthday)";
+1,@fee,@Is_zhusu,@zhusu_num,@zhusu_fee,@total_fee,@ip,@introducer,@ispay,@birthday,@SWYD,@XWYD)";
             SqlConnection con = new SqlConnection(strCon);
             con.Open();//打开数据库连接
             SqlCommand cmd = new SqlCommand(InsertStr, con);
@@ -354,14 +379,14 @@ values(@addtime,@stuname,@sex,@jiguan,@address,@grade,@schoolname,@pname,@phone,
             SqlParameter p7 = new SqlParameter("@schoolname", txt_school.Text.Trim());
             SqlParameter p8 = new SqlParameter("@pname", txt_parents.Text.Trim());
             SqlParameter p9 = new SqlParameter("@phone", txt_phone.Text.Trim());
-            SqlParameter p10 = new SqlParameter("@mchSeqNo",KmchSeqNo);
+            SqlParameter p10 = new SqlParameter("@mchSeqNo", KmchSeqNo);
             SqlParameter p11 = new SqlParameter("@product_id", this.HiddenField1.Value);
             SqlParameter p12 = new SqlParameter("@product_name", this.lbl_course.Text);
             SqlParameter p17 = new SqlParameter("@product_id_bianhao", this.HiddenField7.Value);
             SqlParameter p13 = new SqlParameter("@fee", Convert.ToString(float.Parse(this.lbl_fee.Text.Trim()) * 100));
-            SqlParameter p18 = new SqlParameter("@Is_zhusu","N");
-            SqlParameter p19 = new SqlParameter("@zhusu_num","0");
-            SqlParameter p20 = new SqlParameter("@zhusu_fee","");
+            SqlParameter p18 = new SqlParameter("@Is_zhusu", "N");
+            SqlParameter p19 = new SqlParameter("@zhusu_num", "0");
+            SqlParameter p20 = new SqlParameter("@zhusu_fee", "");
 
             if (dbl_Iszhusu.SelectedValue.Trim() != "aaa")
             {
@@ -371,10 +396,15 @@ values(@addtime,@stuname,@sex,@jiguan,@address,@grade,@schoolname,@pname,@phone,
             }
 
             SqlParameter p14 = new SqlParameter("@total_fee", Convert.ToString(float.Parse(this.lbl_fee.Text.Trim()) * 100));
-            SqlParameter p15 = new SqlParameter("@ip",ceate_ip);
+            SqlParameter p15 = new SqlParameter("@ip", ceate_ip);
             SqlParameter p21 = new SqlParameter("@introducer", txt_introducer.Text.Trim());
-            SqlParameter p22 = new SqlParameter("@ispay","N");
+            SqlParameter p22 = new SqlParameter("@ispay", "N");
             SqlParameter p23 = new SqlParameter("@birthday", drp_year.SelectedValue + "/" + drp_month.SelectedValue + "/" + drp_day.SelectedValue);
+
+            //新增上午营队与下午营队栏位
+            SqlParameter p24 = new SqlParameter("@SWYD", this.SWYD.SelectedValue);
+            SqlParameter p25 = new SqlParameter("@XWYD", this.XWYD.SelectedValue);
+
             cmd.Parameters.Add(p1);
             cmd.Parameters.Add(p2);
             cmd.Parameters.Add(p3);
@@ -398,13 +428,15 @@ values(@addtime,@stuname,@sex,@jiguan,@address,@grade,@schoolname,@pname,@phone,
             cmd.Parameters.Add(p21);
             cmd.Parameters.Add(p22);
             cmd.Parameters.Add(p23);
+            cmd.Parameters.Add(p24);
+            cmd.Parameters.Add(p25);
             try
             {
                 cmd.ExecuteNonQuery();//调用Le类中的EXECCommand方法,执行SQL语句
                 con.Close();//关闭数据库连接
                 result = true;
             }
-            catch
+            catch (Exception ex)
             {
                 result = false;
             }
@@ -417,41 +449,41 @@ values(@addtime,@stuname,@sex,@jiguan,@address,@grade,@schoolname,@pname,@phone,
         protected bool DoSeparate()
         {
             bool result = false;
-                string InsertStr2 = "";
-                InsertStr2 = @"insert into [KsisecPay].[dbo].[order]([addtime],[mchSeqNo],[amount],[orderInfo],[remark],[inExtData])
+            string InsertStr2 = "";
+            InsertStr2 = @"insert into [KsisecPay].[dbo].[order]([addtime],[mchSeqNo],[amount],[orderInfo],[remark],[inExtData])
 values(@addtime,@mchSeqNo,@amount,@orderInfo,@remark,@inExtData)";
-                SqlConnection con = new SqlConnection(strCon);
-                con.Open();//打开数据库连接
-                SqlCommand cmd1 = new SqlCommand(InsertStr2, con);
-                SqlParameter p1 = new SqlParameter("@addtime", DateTime.Now);
-                SqlParameter p2 = new SqlParameter("@mchSeqNo",KmchSeqNo);
-                SqlParameter p3 = new SqlParameter("@amount", Convert.ToString(float.Parse(this.lbl_fee.Text.Trim()) * 100));
-                SqlParameter p4 = new SqlParameter("@orderInfo", "冬令营");
-                SqlParameter p5 = new SqlParameter("@remark", this.HiddenField7.Value);
-                if (dbl_Iszhusu.SelectedValue.Trim() != "aaa")
-                {
-                    p5 = new SqlParameter("@remark", this.lbl_time.Text + " 住宿" + dbl_Iszhusu.SelectedItem.Text.Trim());
-                }
-                SqlParameter p6 = new SqlParameter("@inExtData", this.lbl_course.Text);
-                cmd1.Parameters.Add(p1);
-                cmd1.Parameters.Add(p2);
-                cmd1.Parameters.Add(p3);
-                cmd1.Parameters.Add(p4);
-                cmd1.Parameters.Add(p5);
-                cmd1.Parameters.Add(p6);
-                try
-                {
-                    cmd1.ExecuteNonQuery();//调用Le类中的EXECCommand方法,执行SQL语句
-                    con.Close();//关闭数据库连接
-                    result = true;
-                }
-                catch
-                {
-                    result = false;
-                }
+            SqlConnection con = new SqlConnection(strCon);
+            con.Open();//打开数据库连接
+            SqlCommand cmd1 = new SqlCommand(InsertStr2, con);
+            SqlParameter p1 = new SqlParameter("@addtime", DateTime.Now);
+            SqlParameter p2 = new SqlParameter("@mchSeqNo", KmchSeqNo);
+            SqlParameter p3 = new SqlParameter("@amount", Convert.ToString(float.Parse(this.lbl_fee.Text.Trim()) * 100));
+            SqlParameter p4 = new SqlParameter("@orderInfo", "2024学年小学暑期夏令营");
+            SqlParameter p5 = new SqlParameter("@remark", this.HiddenField7.Value);
+            if (dbl_Iszhusu.SelectedValue.Trim() != "aaa")
+            {
+                p5 = new SqlParameter("@remark", this.lbl_time.Text + " 住宿" + dbl_Iszhusu.SelectedItem.Text.Trim());
+            }
+            SqlParameter p6 = new SqlParameter("@inExtData", this.lbl_course.Text);
+            cmd1.Parameters.Add(p1);
+            cmd1.Parameters.Add(p2);
+            cmd1.Parameters.Add(p3);
+            cmd1.Parameters.Add(p4);
+            cmd1.Parameters.Add(p5);
+            cmd1.Parameters.Add(p6);
+            try
+            {
+                cmd1.ExecuteNonQuery();//调用Le类中的EXECCommand方法,执行SQL语句
+                con.Close();//关闭数据库连接
+                result = true;
+            }
+            catch
+            {
+                result = false;
+            }
             return result;
 
-            }
         }
+    }
 
 }

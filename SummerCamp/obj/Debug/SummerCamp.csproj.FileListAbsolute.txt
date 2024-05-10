@@ -40,12 +40,12 @@ D:\台州校区\夏令营\SummerCamp\SummerCamp\SummerCamp\bin\NPOI.dll
 D:\台州校区\夏令营\SummerCamp\SummerCamp\SummerCamp\obj\Debug\SummerCamp.csprojResolveAssemblyReference.cache
 D:\台州校区\夏令营\SummerCamp\SummerCamp\SummerCamp\obj\Debug\SummerCamp.dll
 D:\台州校区\夏令营\SummerCamp\SummerCamp\SummerCamp\obj\Debug\SummerCamp.pdb
+D:\夏令营交接\台州夏令营\夏令营\SummerCamp\SummerCamp\SummerCamp\obj\Debug\SummerCamp.csproj.CoreCompileInputs.cache
 D:\夏令营交接\台州夏令营\夏令营\SummerCamp\SummerCamp\SummerCamp\bin\SummerCamp.dll.config
 D:\夏令营交接\台州夏令营\夏令营\SummerCamp\SummerCamp\SummerCamp\bin\SummerCamp.dll
 D:\夏令营交接\台州夏令营\夏令营\SummerCamp\SummerCamp\SummerCamp\bin\SummerCamp.pdb
 D:\夏令营交接\台州夏令营\夏令营\SummerCamp\SummerCamp\SummerCamp\bin\NPOI.dll
-D:\夏令营交接\台州夏令营\夏令营\SummerCamp\SummerCamp\SummerCamp\obj\Debug\SummerCamp.csprojAssemblyReference.cache
-D:\夏令营交接\台州夏令营\夏令营\SummerCamp\SummerCamp\SummerCamp\obj\Debug\SummerCamp.csproj.CoreCompileInputs.cache
 D:\夏令营交接\台州夏令营\夏令营\SummerCamp\SummerCamp\SummerCamp\obj\Debug\SummerCamp.csproj.CopyComplete
 D:\夏令营交接\台州夏令营\夏令营\SummerCamp\SummerCamp\SummerCamp\obj\Debug\SummerCamp.dll
 D:\夏令营交接\台州夏令营\夏令营\SummerCamp\SummerCamp\SummerCamp\obj\Debug\SummerCamp.pdb
+D:\夏令营交接\台州夏令营\夏令营\SummerCamp\SummerCamp\SummerCamp\obj\Debug\SummerCamp.csprojAssemblyReference.cache
