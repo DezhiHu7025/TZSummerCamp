@@ -26,3 +26,12 @@ D:\anney_pu\E_old\缴费平台测试\常熟SummerCamp\SummerCamp\SummerCamp\bin\
 D:\anney_pu\E_old\缴费平台测试\常熟SummerCamp\SummerCamp\SummerCamp\obj\Release\SummerCamp.csprojResolveAssemblyReference.cache
 D:\anney_pu\E_old\缴费平台测试\常熟SummerCamp\SummerCamp\SummerCamp\obj\Release\SummerCamp.dll
 D:\anney_pu\E_old\缴费平台测试\常熟SummerCamp\SummerCamp\SummerCamp\obj\Release\SummerCamp.pdb
+D:\夏令营交接\台州夏令营\夏令营\SummerCamp\SummerCamp\SummerCamp\obj\Release\SummerCamp.csproj.CoreCompileInputs.cache
+D:\夏令营交接\台州夏令营\夏令营\SummerCamp\SummerCamp\SummerCamp\obj\Release\SummerCamp.dll
+D:\夏令营交接\台州夏令营\夏令营\SummerCamp\SummerCamp\SummerCamp\obj\Release\SummerCamp.pdb
+D:\夏令营交接\台州夏令营\夏令营\SummerCamp\SummerCamp\SummerCamp\obj\Release\SummerCamp.csprojAssemblyReference.cache
+D:\夏令营交接\台州夏令营\夏令营\SummerCamp\SummerCamp\SummerCamp\bin\SummerCamp.dll.config
+D:\夏令营交接\台州夏令营\夏令营\SummerCamp\SummerCamp\SummerCamp\bin\SummerCamp.dll
+D:\夏令营交接\台州夏令营\夏令营\SummerCamp\SummerCamp\SummerCamp\bin\SummerCamp.pdb
+D:\夏令营交接\台州夏令营\夏令营\SummerCamp\SummerCamp\SummerCamp\bin\NPOI.dll
+D:\夏令营交接\台州夏令营\夏令营\SummerCamp\SummerCamp\SummerCamp\obj\Release\SummerCamp.csproj.CopyComplete

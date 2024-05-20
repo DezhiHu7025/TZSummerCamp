@@ -10,7 +10,8 @@
 namespace SummerCamp {
     
     
-    public partial class course_d11 {
+    public partial class courseContact
+    {
         
         /// <summary>
         /// form1 控件。

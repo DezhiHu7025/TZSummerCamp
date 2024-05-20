@@ -23,8 +23,8 @@
                                         <div class="list-block media-list course-card">
                                             <div style="background: #fff; padding-bottom: 20px">
                                                 <table border="1"></table>
-                                                <img src="img/2024夏令营.jpg" width="100" /><br />
-                                                <img src="img/夏令营说明.png" width="100" />
+                                                <img src="img/2024夏令营.jpg" width="100%" /><br />
+                                                <img src="img/夏令营说明.png" width="100%" />
                                             </div>
                                             <ul>
                                                 <asp:PlaceHolder ID="PlaceHolderList" runat="server" EnableViewState="False"></asp:PlaceHolder>

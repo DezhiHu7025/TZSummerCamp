@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-     <title>冬令营</title>
+     <title>2024学年小学暑期夏令营</title>
 </head>
 <body>
     <SCRIPT LANGUAGE="JavaScript">
@@ -53,29 +53,31 @@
             <table rules="all" border="1" style="width:2000px;"  class="tb1">
             <tr style="height:40px; background-color:#CC5599;">
                 <td colspan="19" style="text-align:center; width:100%;">
-                    <span style="color:White; font-size:20px;">冬令营(校外)</span>
+                    <span style="color:White; font-size:20px;">2024学年小学暑期夏令营(校外)</span>
                 </td>
             </tr>
             <tr style="background-color:#6B696B; height:30px; font-size:14px;">
                 <td align="center" style="color:Black; width:5%;"><span style="color:White;">支付项目ID</span></td>
                 <td align="center" style="color:Black; width:8%;"><span style="color:White;">支付项目</span></td>
                 <td align="center" style="color:Black; width:5%;"><span style="color:White;">开课时间</span></td>
-                <td align="center" style="color:Black; width:5%;"><span style="color:White;">学号</span></td>
+                <td align="center" style="color:Black; width:3%;"><span style="color:White;">学号</span></td>
                 <td align="center" style="color:Black; width:5%;"><span style="color:White;">学生姓名</span></td>
                 <td align="center" style="color:Black; width:4%;"><span style="color:White;">性别</span></td>
                 <td align="center" style="color:Black; width:4%;"><span style="color:White;">生日</span></td>
                 <td align="center" style="color:Black; width:4%;"><span style="color:White;">国籍/籍贯</span></td>
-                <td align="center" style="color:Black; width:10%;"><span style="color:White;">居住地</span></td>
+                <td align="center" style="color:Black; width:5%;"><span style="color:White;">居住地</span></td>
                 <td align="center" style="color:Black; width:4%;"><span style="color:White;">现就读年级</span></td>
-                <td align="center" style="color:Black; width:8%;"><span style="color:White;">现就读学校</span></td>
-                <td align="center" style="color:Black; width:6%;"><span style="color:White;">家长姓名</span></td>
-                <td align="center" style="color:Black; width:8%;"><span style="color:White;">联系电话</span></td>
+                <td align="center" style="color:Black; width:4%;"><span style="color:White;">现就读学校</span></td>
+                <td align="center" style="color:Black; width:4%;"><span style="color:White;">家长姓名</span></td>
+                <td align="center" style="color:Black; width:6%;"><span style="color:White;">联系电话</span></td>
                 <td align="center" style="color:Black; width:4%;"><span style="color:White;">实付金额</span></td>
-                <td align="center" style="color:Black; width:4%;"><span style="color:White;">是否住宿</span></td>
+                <td align="center" style="color:Black; width:3%;"><span style="color:White;">是否住宿</span></td>
                 <td align="center" style="color:Black; width:8%;"><span style="color:White;">交易单号</span></td>
                 <td align="center" style="color:Black; width:8%;"><span style="color:White;">实付时间</span></td>
-                <td align="center" style="color:Black; width:8%;"><span style="color:White;">交易状态</span></td>
-                <td align="center" style="color:Black; width:5%;"><span style="color:White;">介绍人</span></td>
+                <td align="center" style="color:Black; width:4%;"><span style="color:White;">交易状态</span></td>
+                <td align="center" style="color:Black; width:3%;"><span style="color:White;">介绍人</span></td>
+                <td align="center" style="color:Black; width:5%;"><span style="color:White;">上午营队</span></td>
+                <td align="center" style="color:Black; width:5%;"><span style="color:White;">下午营队</span></td>
             </tr>
             <asp:PlaceHolder ID="PlaceHolderList" runat="server" EnableViewState="False"></asp:PlaceHolder>
             </table>

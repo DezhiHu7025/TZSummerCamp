@@ -308,7 +308,7 @@ namespace SummerCamp
                     //Response.Redirect("summer_ok.aspx");
                     if (DoSeparate())
                     {
-                        string url = string.Format("{0}?no={1}", "http://school.kcistz.org.cn/Cweixinorder/weixinorderpc.aspx", KmchSeqNo);
+                        string url = string.Format("{0}?no={1}", "http://school.kcistz.org.cn/weixinorder/weixinorderpc.aspx", KmchSeqNo);
                         Response.Redirect(url);
                     }
                     else

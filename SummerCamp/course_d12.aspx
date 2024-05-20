@@ -116,7 +116,7 @@
                             </a>
                             <!-- TODO: 跳转机构网址 -->
                             |
-        <a href="/courseContact.aspx" class="item-link">立即预约<br />
+        <a href="courseContact.aspx" class="item-link">立即预约<br />
 
 
 

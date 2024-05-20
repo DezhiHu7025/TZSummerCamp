@@ -48,4 +48,3 @@ D:\夏令营交接\台州夏令营\夏令营\SummerCamp\SummerCamp\SummerCamp\bi
 D:\夏令营交接\台州夏令营\夏令营\SummerCamp\SummerCamp\SummerCamp\obj\Debug\SummerCamp.csproj.CopyComplete
 D:\夏令营交接\台州夏令营\夏令营\SummerCamp\SummerCamp\SummerCamp\obj\Debug\SummerCamp.dll
 D:\夏令营交接\台州夏令营\夏令营\SummerCamp\SummerCamp\SummerCamp\obj\Debug\SummerCamp.pdb
-D:\夏令营交接\台州夏令营\夏令营\SummerCamp\SummerCamp\SummerCamp\obj\Debug\SummerCamp.csprojAssemblyReference.cache
